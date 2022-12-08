@@ -1,0 +1,37 @@
+#calculator {
+    display: flex;
+    flex-direction: column;
+    width: 32rem;
+    border: 1px solid #000000;
+    font-size: 4rem;
+    font-family: monospace;
+}
+
+#calc-display {
+    padding: 1rem;
+    border: 1px solid #000000;
+    text-align: right;
+    width: auto;
+}
+
+#calc-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #000000;
+}
+
+.calc-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.calc-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 0;
+    border: 1px solid #000000;
+}
