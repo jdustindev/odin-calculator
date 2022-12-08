@@ -49,6 +49,46 @@ function updateDisplay() {
     document.querySelector('#calc-display').textContent = enteredValues.join('');
 }
 
+function parseValues(values) {
+    let number = '';
+    let parsedValues = [];
+    values.forEach((value) => {
+        if (!isNaN(value)) {
+            number += value;
+        } else {
+            parsedValues.push(number);
+            parsedValues.push(value);
+            number = '';
+        }
+    });
+    return parsedValues;
+}
+
+function calculate(values) {
+    const calcValues = parseValues(values);
+    let result = Number(calcValues[0]);
+    console.log(result);
+    calcValues.forEach((value, index) => {
+        switch (value) {
+            case '+':
+                result = add(result, Number(calcValues[index + 1]));
+                break;
+            case '-':
+                result = subtract(result, Number(calcValues[index + 1]));
+                break;
+            case 'X':
+                result = multiply(result, Number(calcValues[index + 1]));
+                break;
+            case '/':
+                result = divide(result, Number(calcValues[index + 1]));
+                break;
+            case '=':
+                break;
+        }
+    });
+    return result;
+}
+
 const buttons = document.querySelectorAll('.calc-btn');
 
 buttons.forEach(button => {
