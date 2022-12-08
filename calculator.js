@@ -49,6 +49,16 @@ function updateEntered(btnValue) {
         }
         enteredValues[0] = result;
     }
+
+    if (parseValues(enteredValues).length === 4) {
+        const result = calculate(enteredValues);
+        const operator = parseValues(enteredValues)[3];
+        while(enteredValues.length > 0) {
+            enteredValues.pop();
+        }
+        enteredValues.push(result);
+        enteredValues.push(operator);
+    }
     updateDisplay();
 }
 
@@ -57,6 +67,9 @@ function updateDisplay() {
 }
 
 function parseValues(values) {
+    if (values.length === 1) {
+        return values;
+    }
     let number = '';
     let parsedValues = [];
     values.forEach((value) => {
@@ -76,6 +89,9 @@ function calculate(values) {
     let result = Number(calcValues[0]);
     console.log(result);
     calcValues.forEach((value, index) => {
+        if (index === calcValues.length - 1) {
+            return;
+        }
         switch (value) {
             case '+':
                 result = add(result, Number(calcValues[index + 1]));
