@@ -11,7 +11,7 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    return Number(a) * Number(b);
+    return Number(a) / Number(b);
 }
 
 function operate(operator, a, b) {
