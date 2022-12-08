@@ -33,7 +33,24 @@ function operate(operator, a, b) {
     return result;
 }
 
-console.log(operate('+', "10", "5"));
-console.log(operate('-', 10, 5));
-console.log(operate('*', 10, 5));
-console.log(operate('/', 10, 5));
+const enteredValues = [];
+
+function updateEntered(btnValue) {
+    console.log(btnValue);
+    if (Number(btnValue)) {
+        enteredValues.push(Number(btnValue));
+    } else {
+        enteredValues.push(btnValue);
+    }
+    updateDisplay();
+}
+
+function updateDisplay() {
+    document.querySelector('#calc-display').textContent = enteredValues.join('');
+}
+
+const buttons = document.querySelectorAll('.calc-btn');
+
+buttons.forEach(button => {
+    button.addEventListener('click', (event) => updateEntered(event.currentTarget.textContent));
+});
