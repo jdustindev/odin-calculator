@@ -42,6 +42,13 @@ function updateEntered(btnValue) {
     } else {
         enteredValues.push(btnValue);
     }
+    if (btnValue === '=') {
+        const result = calculate(enteredValues);
+        while(enteredValues.length > 0) {
+            enteredValues.pop();
+        }
+        enteredValues[0] = result;
+    }
     updateDisplay();
 }
 
