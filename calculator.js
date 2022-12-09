@@ -47,18 +47,24 @@ function updateEntered(btnValue) {
         enteredValues.push(btnValue);
     }
     if (btnValue === '=') {
-        const result = calculate(enteredValues);
+        let result = calculate(enteredValues);
         while(enteredValues.length > 0) {
             enteredValues.pop();
+        }
+        if (result.toString().length > 9) {
+            result = result.toString().substring(0, 9);
         }
         enteredValues[0] = result;
     }
 
     if (parseValues(enteredValues).length === 4) {
-        const result = calculate(enteredValues);
+        let result = calculate(enteredValues);
         const operator = parseValues(enteredValues)[3];
         while(enteredValues.length > 0) {
             enteredValues.pop();
+        }
+        if (result.toString().length > 9) {
+            result = result.toString().substring(0, 9);
         }
         enteredValues.push(result);
         enteredValues.push(operator);
