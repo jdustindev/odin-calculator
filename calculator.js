@@ -72,6 +72,12 @@ function updateEntered(btnValue) {
         enteredValues.push(result);
         enteredValues.push(operator);
     }
+
+    if (enteredValues[0] === Infinity) {
+        enteredValues.pop();
+        enteredValues.push(0);
+        alert('You shall not divide by zero!')
+    }
     updateDisplay();
 }
 
