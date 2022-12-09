@@ -37,6 +37,9 @@ const enteredValues = [];
 
 function updateEntered(btnValue) {
     console.log(btnValue);
+    if (btnValue === '.' && enteredValues.includes('.')) {
+        return;
+    }
     if (Number(btnValue)) {
         enteredValues.push(Number(btnValue));
     } else if (btnValue === 'C') {
@@ -92,7 +95,7 @@ function parseValues(values) {
     let number = '';
     let parsedValues = [];
     values.forEach((value) => {
-        if (!isNaN(value)) {
+        if (!isNaN(value) || value === '.') {
             number += value;
         } else {
             parsedValues.push(number);
