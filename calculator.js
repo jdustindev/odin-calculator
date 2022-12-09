@@ -39,6 +39,10 @@ function updateEntered(btnValue) {
     console.log(btnValue);
     if (Number(btnValue)) {
         enteredValues.push(Number(btnValue));
+    } else if (btnValue === 'C') {
+        while(enteredValues.length > 0) {
+            enteredValues.pop();
+        }
     } else {
         enteredValues.push(btnValue);
     }
