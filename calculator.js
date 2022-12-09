@@ -47,6 +47,9 @@ function updateEntered(btnValue) {
         enteredValues.push(btnValue);
     }
     if (btnValue === '=') {
+        if (enteredValues.length === 1) {
+            enteredValues.push(0);
+        }
         let result = calculate(enteredValues);
         while(enteredValues.length > 0) {
             enteredValues.pop();
