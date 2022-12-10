@@ -37,6 +37,7 @@
     flex: 1 1 0;
     border: 1px solid #000000;
     background-color: #eeeeee;
+    border-radius: 4px;
 }
 
 .calc-operator {
