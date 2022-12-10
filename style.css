@@ -21,6 +21,7 @@
     gap: 1rem;
     padding: 1rem;
     border: 1px solid #000000;
+    background-color: #bbffff;
 }
 
 .calc-row {
@@ -35,4 +36,15 @@
     align-items: center;
     flex: 1 1 0;
     border: 1px solid #000000;
+    background-color: #eeeeee;
+}
+
+.calc-operator {
+    color: #ffffff;
+    background-color: #000000;
+}
+
+#clear {
+    color: #ffffff;
+    background-color: #770000;
 }
