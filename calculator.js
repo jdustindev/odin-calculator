@@ -42,11 +42,11 @@ function updateEntered(btnValue) {
     }
     if (Number(btnValue)) {
         enteredValues.push(Number(btnValue));
-    } else if (btnValue === 'C') {
+    } else if (btnValue === 'C' || btnValue ==='c') {
         while(enteredValues.length > 0) {
             enteredValues.pop();
         }
-    } else if (btnValue === '←') {
+    } else if (btnValue === '←' || btnValue === 'Backspace' || btnValue === 'Delete') {
         const lastValue = enteredValues[enteredValues.length - 1].toString();
         if (lastValue.length > 1) {
             enteredValues[enteredValues.length - 1] = lastValue.substring(0, lastValue.length - 1);
@@ -58,7 +58,7 @@ function updateEntered(btnValue) {
     } else {
         enteredValues.push(btnValue);
     }
-    if (btnValue === '=') {
+    if (btnValue === '=' || btnValue === 'Enter') {
         if (enteredValues.length === 1) {
             enteredValues.push(0);
         }
@@ -131,12 +131,14 @@ function calculate(values) {
                 result = subtract(result, Number(calcValues[index + 1]));
                 break;
             case 'X':
+            case 'x':
+            case '*':
                 result = multiply(result, Number(calcValues[index + 1]));
                 break;
             case '/':
                 result = divide(result, Number(calcValues[index + 1]));
                 break;
-            case '=':
+            case '=' || 'Enter':
                 break;
         }
     });
@@ -148,3 +150,22 @@ const buttons = document.querySelectorAll('.calc-btn');
 buttons.forEach(button => {
     button.addEventListener('click', (event) => updateEntered(event.currentTarget.textContent));
 });
+
+document.addEventListener('keypress', (event) => {
+    console.log(event.key);
+    const validKeys = [];
+    '1234567890'.split('').forEach((key) => {
+        validKeys.push(key);
+    });
+    validKeys.push('Enter', '=', '+', '-', '*', 'x', 'X', '/', '.', 'Backspace', 'Delete', 'c', 'C');
+    if (validKeys.includes(event.key)) {
+        updateEntered(event.key);
+    }
+});
+
+document.addEventListener('keydown', (event) => {
+    console.log(event.key);
+    if (event.key === 'Backspace') {
+        updateEntered(event.key);
+    }
+}) 
