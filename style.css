@@ -5,6 +5,8 @@
     border: 1px solid #000000;
     font-size: 4rem;
     font-family: monospace;
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,.6) 1px 1px 2px;
 }
 
 #calc-display {
@@ -13,6 +15,10 @@
     text-align: right;
     width: auto;
     height: 3.25rem;
+    background-color: #e6ffe6;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 #calc-controls {
@@ -38,6 +44,13 @@
     border: 1px solid #000000;
     background-color: #eeeeee;
     border-radius: 4px;
+    box-shadow: rgba(0,0,0,.6) 1px 1px 2px;
+}
+.calc-btn:hover {
+    transform: translate(1px, 1px);
+}
+.calc-btn:active {
+    transform: translate(2px, 2px);
 }
 
 .calc-operator {
