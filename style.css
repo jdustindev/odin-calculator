@@ -48,3 +48,7 @@
     color: #ffffff;
     background-color: #770000;
 }
+
+#backspace {
+    flex: 2.2 2 0;
+}

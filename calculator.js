@@ -46,6 +46,15 @@ function updateEntered(btnValue) {
         while(enteredValues.length > 0) {
             enteredValues.pop();
         }
+    } else if (btnValue === '←') {
+        const lastValue = enteredValues[enteredValues.length - 1].toString();
+        if (lastValue.length > 1) {
+            enteredValues[enteredValues.length - 1] = lastValue.substring(0, lastValue.length - 1);
+            updateDisplay();
+            return;
+        } else {
+            enteredValues.pop();
+        }
     } else {
         enteredValues.push(btnValue);
     }
